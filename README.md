@@ -1,5 +1,4 @@
 # gobitkan
-===
 *基于Bitkan官方API文档的Golang实现*
 
 ## 官方API文档地址
