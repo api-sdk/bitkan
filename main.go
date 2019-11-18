@@ -27,7 +27,7 @@ type Bitkan struct {
 	AccessKey, SecretKey, PrivateKey, BaseUrl string
 }
 
-func NewAbc(accessKey, secretKey, privateKey, baseUrl string) *Bitkan {
+func NewBitkan(accessKey, secretKey, privateKey, baseUrl string) *Bitkan {
 	return &Bitkan{accessKey, secretKey, privateKey, baseUrl}
 }
 
