@@ -15,8 +15,10 @@ func (this *Bitkan) AccountCoinBalance(wType string, currency string, params ...
 	data := map[string]interface{}{}
 	data["type"] = wType
 	data["currency"] = currency
-	for k, v := range params[0] {
-		data[k] = v
+	if len(params) > 0 {
+		for k, v := range params[0] {
+			data[k] = v
+		}
 	}
 	path := "/open_api/v1/account/coin_balance"
 	body, err := this.postRequest(path, data)

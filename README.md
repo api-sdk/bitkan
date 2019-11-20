@@ -11,6 +11,8 @@ go get -u github.com/api-sdk/gobitkan
 
 
 ## 函数列表
+* 设置BaseUrl
+    * SetBaseUrl(url string) //无返回值
 
 * 行情数据
     * PriceSymbols()
@@ -44,13 +46,12 @@ import (
 )
 
 func main() {
-
 	baseURL := ""
 	accessKey := ""
 	secretKey := ""
 	privateKey := ``
 
-	var bitkan = gobitkan.Bitkan{accessKey, secretKey, privateKey, baseURL} // baseURL可直接传空字符串，已内置接口地址。
+	var bitkan = gobitkan.Bitkan{AccessKey: accessKey, SecretKey: secretKey, PrivateKey: privateKey, BaseUrl: baseURL} // BaseUrl可不传，已内置接口地址。
 
 	// 获取所有币种余额
 	res, err := bitkan.AccountBalance("spot")

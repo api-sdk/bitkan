@@ -14,8 +14,10 @@ func (this *Bitkan) PriceKline(symbol string, kType string, params ...map[string
 	data := map[string]interface{}{}
 	data["symbol"] = symbol
 	data["type"] = kType
-	for k, v := range params[0] {
-		data[k] = v
+	if len(params) > 0 {
+		for k, v := range params[0] {
+			data[k] = v
+		}
 	}
 	path := "/open_api/v1/price/k_line"
 	body, err := this.getRequest(path, data)
@@ -28,8 +30,10 @@ func (this *Bitkan) PriceKline(symbol string, kType string, params ...map[string
 func (this *Bitkan) PriceDepth(symbol string, params ...map[string]interface{}) ([]byte, error) {
 	data := map[string]interface{}{}
 	data["symbol"] = symbol
-	for k, v := range params[0] {
-		data[k] = v
+	if len(params) > 0 {
+		for k, v := range params[0] {
+			data[k] = v
+		}
 	}
 	path := "/open_api/v1/price/depth"
 	body, err := this.getRequest(path, data)
