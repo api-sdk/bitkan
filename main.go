@@ -93,6 +93,9 @@ func (this *Bitkan) priEncrypt(data []byte) ([]byte, error) {
 func (this *Bitkan) httpRequest(method string, path string, data []byte) ([]byte, error) {
 	method = strings.ToUpper(method)
 	url := baseUrl + path
+	if this.BaseUrl != "" {
+		url = this.BaseUrl + path
+	}
 	req, err := http.NewRequest(method, url, bytes.NewBuffer(data))
 	if err != nil {
 		return nil, err
